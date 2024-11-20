@@ -265,11 +265,12 @@ def get_address():
 		allAddrs = []
 		for addr in addrFile:
 			try:
-				if addr[i] != '':
+				if len(addr) > i and addr[i] != '':
 					allAddrs.append(addr[i])
 			except:
 				pass
-		full_addr.append(choice(allAddrs))
+		if allAddrs:
+			full_addr.append(choice(allAddrs))
 	full_addr = dict(zip(addrParam, full_addr))
 	return full_addr
 
